@@ -1,5 +1,6 @@
 package com.sparta.java_02.domain.purchase.entity;
 
+import com.sparta.java_02.common.enums.PurchaseStatus;
 import com.sparta.java_02.domain.user.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,10 +44,14 @@ public class Purchase {
   BigDecimal totalPrice;
 
 
+//  @Enumerated(EnumType.STRING)
+//  @Column(nullable = false, length = 20)
+//  String status;
+
+
   @Enumerated(EnumType.STRING)
   @Column(nullable = false, length = 20)
-  String status;
-
+  PurchaseStatus status;
 
   @CreationTimestamp
   @Column(nullable = false, updatable = false)
@@ -60,7 +65,7 @@ public class Purchase {
   public Purchase(
       User user,
       BigDecimal totalPrice,
-      String status
+      PurchaseStatus status
    ) {
     this.user = user;
     this.totalPrice = totalPrice;
