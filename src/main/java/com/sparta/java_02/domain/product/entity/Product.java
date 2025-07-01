@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
@@ -23,6 +24,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 @Table
 @Entity
+@Getter
 @DynamicInsert
 @DynamicUpdate
 @NoArgsConstructor
@@ -72,4 +74,11 @@ public class Product {
     this.price = price;
     this.stock = stock;
   }
+
+  // 재고 빼는 함수
+  public void reduceStock(Integer stock) {
+    this.stock -= stock;
+  }
+
+
 }

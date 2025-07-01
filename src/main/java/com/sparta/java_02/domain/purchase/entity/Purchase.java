@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
@@ -41,6 +42,7 @@ public class Purchase {
   User user;
 
   @Column
+  @Setter // 이거 맞는지 확인
   BigDecimal totalPrice;
 
 

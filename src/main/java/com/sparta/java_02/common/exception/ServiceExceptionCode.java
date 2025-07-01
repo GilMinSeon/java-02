@@ -11,8 +11,8 @@ import lombok.experimental.FieldDefaults;
 public enum ServiceExceptionCode {
 
   NOT_FOUND_DATA("데이터를 찾을 수 없습니다"),
-  NOT_FOUND_USER("사용자를 찾을 수 없습니다")
-  ;
+  NOT_FOUND_USER("사용자를 찾을 수 없습니다"),
+  OUT_OF_STOCK_PRODUCT("재고없음");
 
   final String message;
 
