@@ -4,7 +4,6 @@ public enum PurchaseStatus {
 
   PENDING,
   COMPLETION,
-  CANCELLED
-  ;
+  CANCELED
 
 }

@@ -31,10 +31,10 @@ public class UserService {
 //            .createdAt(user.getCreatedAt())
 //            .build())
 //        .toList();
-      return userRepository.findAll().stream()
-          .map(userMapper::toSearch)
-          //.map(user -> userMapper.toSearch(user))
-          .toList();
+    return userRepository.findAll().stream()
+        .map(userMapper::toSearch)
+        //.map(user -> userMapper.toSearch(user))
+        .toList();
   }
 
   @Transactional
@@ -51,14 +51,18 @@ public class UserService {
 
   @Transactional
   public void create(UserCreateRequest request) {
+    // 방법 1) 빌더 패턴
+    //User.builder(): User 엔티티에 Lombok의 @Builder가 붙어 있다는 전제야.
+    //각 필드에 .name(...), .email(...)으로 값을 지정해줘
+    // 마지막 .build()를 하면 User 객체 하나가 만들어짐
 //    userRepository.save(User.builder()
 //        .name(request.getName())
 //        .email(request.getEmail())
 //        .passwordHash(request.getPassword())
 //        .build());
 
-      // mapstruct 활용방법
-      userRepository.save(userMapper.toEntity(request));
+    // mapstruct 활용방법
+    userRepository.save(userMapper.toEntity(request));
   }
 
   @Transactional

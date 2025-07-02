@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
@@ -24,6 +25,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.util.ObjectUtils;
 
 @Table
 @Entity
@@ -31,6 +33,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @DynamicUpdate
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Getter
 public class Purchase {
 
   @Id
@@ -38,13 +41,12 @@ public class Purchase {
   Long id;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "user_id", nullable=false)
+  @JoinColumn(name = "user_id", nullable = false)
   User user;
 
   @Column
   @Setter // 이거 맞는지 확인
   BigDecimal totalPrice;
-
 
 //  @Enumerated(EnumType.STRING)
 //  @Column(nullable = false, length = 20)
@@ -68,9 +70,15 @@ public class Purchase {
       User user,
       BigDecimal totalPrice,
       PurchaseStatus status
-   ) {
+  ) {
     this.user = user;
     this.totalPrice = totalPrice;
     this.status = status;
+  }
+
+  public void setStatus(PurchaseStatus status) {
+    if (!ObjectUtils.isEmpty(status)) {
+      this.status = status;
+    }
   }
 }

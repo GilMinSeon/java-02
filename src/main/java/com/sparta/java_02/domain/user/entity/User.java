@@ -39,17 +39,17 @@ public class User {
   Long id;  // FieldDefaults 어노테이션으로 private 접근제한자 제거가능
 
   @Column(nullable = false, length = 50) //cf) 위에서 pk는 id어노테이션을 쓰면서 테이블의 컬럼이라고 인지, 일반컬럼들은 이 컬럼 어노테이션을 써야 컬럼으로 인지한다
-   String name;
+  String name;
 
   @Column
-   String email;
+  String email;
 
   @Column// cf) name = "password_hash" => name속성도 자동으로 카멜표기법 치환해서 인지해줌, 생략가능
-   String passwordHash;  // camel표기법으로 쓴다
+  String passwordHash;  // camel표기법으로 쓴다
 
   @CreationTimestamp  // 시간이 자동으로 기록
   @Column(nullable = false, updatable = false)
-   LocalDateTime createdAt;
+  LocalDateTime createdAt;
 
   @UpdateTimestamp
   @Column
@@ -57,6 +57,7 @@ public class User {
 
 
   // 두번째 방법 생성자에 붙이기 -> 왜냐면 빈생성자가 하나 필요해서
+  //@Builder를 생성자에 붙였기 때문에, 그 생성자의 파라미터를 기준으로 User.builder()를 사용할 수 있게 되는 거야.
   @Builder
   public User(
       String name,
