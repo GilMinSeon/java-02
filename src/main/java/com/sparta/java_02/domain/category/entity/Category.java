@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
@@ -25,7 +26,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 @DynamicUpdate
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Getter
 public class Category {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
@@ -34,7 +37,7 @@ public class Category {
   String name;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name="parent_id")
+  @JoinColumn(name = "parent_id")
   @JsonBackReference // 순환참조 ??
   Category parent;
 

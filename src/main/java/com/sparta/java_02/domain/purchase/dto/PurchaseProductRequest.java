@@ -1,6 +1,5 @@
 package com.sparta.java_02.domain.purchase.dto;
 
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
@@ -12,4 +11,5 @@ public class PurchaseProductRequest {
   Long productId;
 
   Integer quantity;
+
 }

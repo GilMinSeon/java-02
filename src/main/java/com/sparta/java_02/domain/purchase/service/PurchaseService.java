@@ -1,5 +1,6 @@
 package com.sparta.java_02.domain.purchase.service;
 
+import com.sparta.java_02.common.enums.PurchaseStatus;
 import com.sparta.java_02.common.exception.ServiceException;
 import com.sparta.java_02.common.exception.ServiceExceptionCode;
 import com.sparta.java_02.domain.product.entity.Product;
@@ -41,6 +42,8 @@ public class PurchaseService {
     // 해당 사용자에 대한 Purchase 객체 생성
     Purchase purchase = purchaseRepository.save(Purchase.builder()
         .user(user)
+        .totalPrice(BigDecimal.ZERO)
+        .status(PurchaseStatus.PENDING)
         .build());
 
     // 총 금액 초기화
