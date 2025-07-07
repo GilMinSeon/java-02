@@ -57,7 +57,7 @@ class PurchaseControllerTest {
     purchaseProductRequestTests.add(
         new PurchaseProductRequestTest(1L, 10)); // productId: 1, quantity: 10
 
-    // null 넣으니까 500 에러남 -> PurchaseRequest 수정  @NotNull 추가함
+    // null 넣으니까 500 에러남 -> PurchaseRequest 수정
     PurchaseRequestTest purchaseRequestTest = new PurchaseRequestTest(null,
         purchaseProductRequestTests); // userId: null
 

@@ -6,10 +6,10 @@ public class PurchaseRequestTest {
 
   Long userId;
 
-  List<PurchaseProductRequestTest> purchaseProducts;
+  List<PurchaseProductRequestTest> products;
 
-  public PurchaseRequestTest(Long userId, List<PurchaseProductRequestTest> purchaseProducts) {
-    this.purchaseProducts = purchaseProducts;
+  public PurchaseRequestTest(Long userId, List<PurchaseProductRequestTest> products) {
+    this.products = products;
     this.userId = userId;
   }
 
@@ -22,11 +22,11 @@ public class PurchaseRequestTest {
   }
 
   public List<PurchaseProductRequestTest> getPurchaseProducts() {
-    return purchaseProducts;
+    return products;
   }
 
   public void setPurchaseProducts(
-      List<PurchaseProductRequestTest> purchaseProducts) {
-    this.purchaseProducts = purchaseProducts;
+      List<PurchaseProductRequestTest> products) {
+    this.products = products;
   }
 }

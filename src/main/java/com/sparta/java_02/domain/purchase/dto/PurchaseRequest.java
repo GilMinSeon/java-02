@@ -1,5 +1,6 @@
 package com.sparta.java_02.domain.purchase.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AccessLevel;
@@ -14,6 +15,7 @@ public class PurchaseRequest {
   Long userId;
 
   @NotNull
-  List<PurchaseProductRequest> purchaseProducts;
+  @Valid
+  List<PurchaseProductRequest> products;
 
 }

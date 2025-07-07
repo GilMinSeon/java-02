@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Hidden
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-  // 에러를 처리할 수 있는 핸들러
+
   private final String VALIDATE_ERROR = "VALIDATE_ERROR";
   private final String SERVER_ERROR = "SERVER_ERROR";
-  // 스프링이 익센션 해주니까 우리는 서비스에서 throw하면 된다
-  @ExceptionHandler(ServiceException.class) // 너가 빈으로 가지고 있는 모든 클래스 발생하면 핸들리스폰스 익셉션을 실행해
-  public ResponseEntity<?> handelResponseException(ServiceException ex) {
-      return ApiResponse.error(ex.getCode(),  ex.getMessage());
+
+  @ExceptionHandler(ServiceException.class)
+  public ResponseEntity<?> handleResponseException(ServiceException ex) {
+    return ApiResponse.error(ex.getCode(), ex.getMessage());
   }
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
