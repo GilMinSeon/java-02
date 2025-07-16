@@ -23,6 +23,9 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
         highlight_sql: true
+        # 배치 적용
+        jdbc:
+          batch_size: 1000
 
   flyway:
     enabled: true # Flyway 활성화
