@@ -52,6 +52,8 @@ dependencies {
     // Jedis 클라이언트 (Redis와 통신하기 위한 라이브러리)
     implementation 'redis.clients:jedis:4.3.1'
 
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 

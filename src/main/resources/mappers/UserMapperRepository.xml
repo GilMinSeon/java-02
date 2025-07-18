@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sparta.java_02.mapper.UserMapperRepository">
+
+  <select id="getUserById" parameterType="Long"
+    resultType="com.sparta.java_02.domain.user.dto.SearchUserDto">
+    SELECT id, name, email, password_hash, created_at, updated_at
+    FROM user
+    WHERE id = #{id}
+  </select>
+
+  <insert id="insertUser" parameterType="com.sparta.java_02.domain.user.dto.UserDto'">
+    INSERT INTO user
+    VALUES (#{name}, #{email}, #{passwordHash}, now(), now())
+  </insert>
+
+
+</mapper>
